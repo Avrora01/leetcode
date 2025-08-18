@@ -24,3 +24,22 @@ function lengthOfLastWord(s) {
   return arr[arr.length - 1].length;
 }
 // console.log(lengthOfLastWord("   fly me   to   the moon  "));
+
+function repeatedCharacter(s) {
+  let arr = s.split('');
+  let firstDuplicateIndex = s.length;
+  let result = '';
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
+        if (j < firstDuplicateIndex) {
+          firstDuplicateIndex = j;
+          result = arr[i];
+        }
+        break;
+      }
+    }
+  }
+  return result;
+}
+// console.log(repeatedCharacter("abccbaacz"));
