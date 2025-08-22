@@ -122,3 +122,17 @@ function addDigits(num) {
 }
 
 // console.log(addDigits(38));
+
+
+//7) Given a string s, return the string after replacing every uppercase letter with the same lowercase letter.
+// Example 1:
+// Input: s = "Hello"
+// Output: "hello"
+
+
+function toLowerCase(s) {
+  arr = s.toLowerCase()
+  return arr;
+}
+
+console.log(toLowerCase("Hello"));
