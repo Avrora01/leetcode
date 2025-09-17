@@ -200,6 +200,20 @@ function maxKDistinct(nums, k) {
     return b - a
   })
 
-  return sortArr.slice(0,k)
+  return sortArr.slice(0, k)
 }
 // console.log(maxKDistinct([84, 93, 100, 77, 90], 3));
+
+//11)Contains Duplicate
+// Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+// Example 1:
+// Input: nums = [1,2,3,1]
+// Output: true
+// Explanation:
+// The element 1 occurs at the indices 0 and 3.
+
+function containsDuplicate(nums) {
+  return new Set(nums).size !== nums.length
+}
+console.log(containsDuplicate([1, 2, 3]));
