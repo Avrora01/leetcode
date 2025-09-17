@@ -19,7 +19,7 @@
 // C can be placed before D (500) and M (1000) to make 400 and 900.
 // Given a roman numeral, convert it to an integer.
 
- 
+
 
 // Example 1:
 // Input: s = "III"
@@ -38,18 +38,49 @@ function romanToInt(s) {
   }
   let res = 0;
 
-  for(let i=0; i<s.length; i++){
-      const current = values[s[i]]
-      const next = values[s[i+1]]
+  for (let i = 0; i < s.length; i++) {
+    const current = values[s[i]]
+    const next = values[s[i + 1]]
 
-      if(next>current){
-         res-=current
-      }
-      else{
-         res+=current
-      }
+    if (next > current) {
+      res -= current
+    }
+    else {
+      res += current
+    }
   }
   return res
 
 }
 // console.log(romanToInt("III"));
+
+
+//2) Sort Characters By Frequency
+//Given a string s, sort it in decreasing order based on the frequency of the characters. The frequency of a character is the number of times it appears in the string.
+// Return the sorted string. If there are multiple answers, return any of them.
+// Example 1:
+// Input: s = "tree"
+// Output: "eert"
+// Explanation: 'e' appears twice while 'r' and 't' both appear once.
+// So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
+
+
+function frequencySort(s) {
+  let obj = {}
+  for (let i = 0; i < s.length; i++) {
+    if (!obj[s[i]]) {
+      obj[s[i]] = 0
+    }
+    obj[s[i]]++
+  }
+  let arr = Object.entries(obj).sort((a, b) => b[1] - a[1])
+  let str = ""
+  for (let i = 0; i < arr.length; i++) {
+    str += arr[i][0].repeat(arr[i][1])
+  }
+  return str
+
+}
+
+// console.log(frequencySort("tree"));
+// console.log(frequencySort("Aabb"));
