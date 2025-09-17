@@ -182,3 +182,24 @@ function earliestTime(tasks) {
 }
 // console.log(earliestTime([[1, 6], [2, 3]]));
 
+//10)Maximize Sum of At Most K Distinct Elements
+// You are given a positive integer array nums and an integer k.
+// Choose at most k elements from nums so that their sum is maximized.However, the chosen numbers must be distinct.
+// Return an array containing the chosen numbers in strictly descending order.
+
+//   Example 1:
+// Input: nums = [84, 93, 100, 77, 90], k = 3
+// Output: [100, 93, 90]
+// Explanation:
+// The maximum sum is 283, which is attained by choosing 93, 100 and 90. We rearrange them in strictly descending order as [100, 93, 90].
+
+function maxKDistinct(nums, k) {
+  let set = [...new Set(nums)]
+
+  let sortArr = set.sort((a, b) => {
+    return b - a
+  })
+
+  return sortArr.slice(0,k)
+}
+// console.log(maxKDistinct([84, 93, 100, 77, 90], 3));
