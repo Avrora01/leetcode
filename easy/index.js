@@ -217,3 +217,29 @@ function containsDuplicate(nums) {
   return new Set(nums).size !== nums.length
 }
 console.log(containsDuplicate([1, 2, 3]));
+
+
+//12) Water Bottles
+// There are numBottles water bottles that are initially full of water. You can exchange numExchange empty water bottles from the market with one full water bottle.
+// The operation of drinking a full water bottle turns it into an empty bottle.
+// Given the two integers numBottles and numExchange, return the maximum number of water bottles you can drink.
+
+// Example 1:
+// Input: numBottles = 9, numExchange = 3
+// Output: 13
+// Explanation: You can exchange 3 empty bottles to get 1 full water bottle.
+
+function numWaterBottles(numBottles, numExchange, empty = 0) {
+
+  empty += numBottles
+  if (empty < numExchange) {
+    return numBottles
+  }
+
+  let newBottle = 1;
+  empty -= numExchange;
+
+  return numBottles + numWaterBottles(newBottle, numExchange, empty)
+}
+
+// console.log(numWaterBottles(9,3));
