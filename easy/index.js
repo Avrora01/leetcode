@@ -296,7 +296,7 @@ function mySqrt(x) {
 
 
 function isUgly(n) {
-  if (n <= 0) return false; 
+  if (n <= 0) return false;
   while (n % 2 === 0) {
     n = n / 2;
   }
@@ -309,6 +309,22 @@ function isUgly(n) {
   return n === 1;
 }
 
-console.log(isUgly(6));  // true  (6 = 2×3)
-console.log(isUgly(14)); // false (14 = 2×7)
-console.log(isUgly(1));  // true  (по условию)
+// console.log(isUgly(6));
+// console.log(isUgly(14));
+// console.log(isUgly(1));  
+
+
+
+
+function twoSum(nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] + nums[j] === target) {
+        return [i, j];
+      }
+    }
+  }
+  return [];
+}
+
+console.log(twoSum([2, 7, 11, 15], 9));
